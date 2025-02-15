@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NIT Warangal</title>
+    <style>
+        :root {
+            --font-size-base: 16px;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            font-size: var(--font-size-base);
+        }
+
+        /* Top Bar */
+        .top-bar {
+            background-color: #2B427D;
+            color: white;
+            padding: 8px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Updated Social Icons Styles */
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            margin-left: auto;
+        }
+
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 35px;
+            height: 35px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons img {
+            width: 20px;
+            height: 20px;
+        }
+
+        .social-icons a.facebook {
+            background-color: #3b5998;
+        }
+
+        .social-icons a.twitter {
+            background-color: #fff;
+        }
+
+        .social-icons a.youtube {
+            background-color: #fff;
+        }
+
+        .social-icons a.linkedin {
+            background-color: #0077B5;
+        }
+
+        .social-icons a.instagram {
+            background-color: #C13584;
+        }
+
+        .social-icons a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        /* Updated Utility Buttons */
+        .utility-buttons {
+            display: flex;
+            gap: 10px;
+            margin-left: 20px;
+        }
+
+        .utility-buttons button {
+            background: white;
+            color: #fff;
+            border: 2px solid white;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .utility-buttons button:hover {
+            transform: translateY(-2px);
+        }
+
+        .utility-buttons button#font-reset {
+            background-color:#2B427D;
+            border-radius: 20px;
+            width: auto;
+            padding: 0 15px;
+        }
+        .utility-buttons button#font-increase,.utility-buttons button#font-decrease {
+            background-color:#2B427D;
+        }
+
+        /* Logo Section */
+        .logo-section {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .logo-section img {
+            max-width: 600px;
+            height: auto;
+        }
+
+        /* Main Navigation */
+        .main-nav {
+            background-color: white;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            padding: 10px 0;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-menu li {
+            position: relative;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            padding: 10px 0;
+            display: block;
+        }
+
+        .nav-menu a:hover {
+            color: #2B427D;
+        }
+        .dropdown-icon::after {
+            content: '▼';
+            font-size: 10px;
+            margin-left: 5px;
+        }
+
+        /* Updated Slider Styles */
+        .slider {
+            position: relative;
+            max-width: 100%;
+            height: 400px;
+            overflow: hidden;
+        }
+        
+        .slider .slides {
+            border-style: solid;
+            border-color: #2B427D;
+            border-width: 5px;
+            width: 400%;
+            height: 100%;
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        
+        .slider .slide {
+            width: 25%;
+            height: 100%;
+        }
+        
+        .slider img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .slider-nav {
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+            transform: translateY(-50%);
+            z-index: 10;
+        }
+        
+        .slider-nav button {
+            background: rgba(0,0,0,0.5);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-size: 20px;
+            border-radius: 3px;
+            transition: all 0.3s;
+        }
+        
+        .slider-nav button:hover {
+            background: rgba(0,0,0,0.7);
+        }
+        
+        .slider-dots {
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .slider-dots .dot {
+            width: 12px;
+            height: 12px;
+            background: rgba(255,255,255,0.5);
+            border-radius: 50%;
+            cursor: pointer;
+        }
+        
+        .slider-dots .dot.active {
+            background: white;
+        }
+
+        /* G20 and Other Logos */
+        .additional-logos {
+            margin-bottom: 15px;
+            margin-left: 50px;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .additional-logos img {
+            height: 50px;
+            width: auto;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #2B427D;
+            color: white;
+            padding: 40px 20px;
+            margin-top: 40px;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+            }
+            
+            .nav-menu {
+                margin-bottom: 10px;
+            }
+            
+            .additional-logos {
+                justify-content: center;
+                margin-top: 10px;
+            }
+            
+            .logo-section img {
+                max-width: 100%;
+            }
+
+            .footer-content {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .top-bar {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+        }
+        /* Announcements Bar */
+.announcements-bar {
+    background: #f8f9fa;
+    padding: 10px 0;
+    border-top: 3px solid #2B427D;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.marquee-container {
+    overflow: hidden;
+    width: 100%;
+}
+
+.marquee-content {
+    display: inline-block;
+    white-space: nowrap;
+    animation: marquee 30s linear infinite;
+}
+
+.announcement-item {
+    margin-right: 50px;
+    font-size: 0.9rem;
+}
+
+.new-tag {
+    background: #ffc107;
+    padding: 2px 8px;
+    border-radius: 3px;
+    margin-right: 10px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+@keyframes marquee {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+}
+
+/* Updates Section */
+.updates-section {
+    padding: 40px 0;
+    background: #fff;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.updates-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+.update-card {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 20px;
+}
+
+.update-card h2 {
+    color: #2B427D;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #e9ecef;
+}
+
+/* Event Slider */
+.event-slider {
+    position: relative;
+}
+
+.event-slide img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 4px;
+}
+
+.slider-arrows button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.prev-arrow { left: 10px; }
+.next-arrow { right: 10px; }
+
+/* Awards List */
+.awards-list {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.award-item {
+    padding: 15px 0;
+    border-bottom: 1px solid #e9ecef;
+}
+
+/* Seminar Styles */
+.seminar-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.profile-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.badge {
+    background: #dc3545;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+}
+
+.seminar-details {
+    margin-top: 15px;
+    font-size: 0.9rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .updates-grid {
+        grid-template-columns: 1fr;
+    }
+}
+    </style>
+</head>
+<body>
+    <div class="top-bar">
+        <div>Welcome to National Institute of Technology Warangal</div>
+        <div class="social-icons">
+            <a href="https://www.facebook.com/NITW.INDIA" title="Facebook" class="facebook">
+                <img src="facebook.webp" alt="Facebook" />
+            </a>
+            <a href="https://twitter.com/NITW_INDIA" title="Twitter" class="twitter">
+                <img src="twitter.png" alt="Twitter" />
+            </a>
+            <a href="https://www.youtube.com/channel/UC9H8ZCjgYhxLqQcy9xIauxw" title="YouTube" class="youtube">
+                <img src="youtube.png" alt="YouTube" />
+            </a>
+            <a href="https://www.linkedin.com/school/nit-warangal/" title="LinkedIn" class="linkedin">
+                <img src="linkedin.webp" alt="LinkedIn" />
+            </a>
+            <a href="https://www.instagram.com/nit_warangal/" title="Instagram" class="instagram">
+                <img src="instagram.png" alt="Instagram" />
+            </a>
+        </div>
+        <div class="utility-buttons">
+            <button id="font-increase">🔍+</button>
+            <button id="font-decrease">🔍-</button>
+            <button id="font-reset">Reset</button>
+        </div>
+    </div>
+
+    <div class="logo-section">
+        <img src="NITWLogo.png" alt="NIT Warangal Logo with Telugu and Hindi text" />
+    </div>
+
+    <nav class="main-nav">
+        <div class="nav-container">
+            <ul class="nav-menu">
+                <li><a href="#"><img style="height: 30px;" src="home.png" alt="Home" /></a></li>
+                <li><a href="#" class="dropdown-icon"><b>Institute</a></b></li>
+                <li><a href="#" class="dropdown-icon"><b>Administration</b></a></li>
+                <li><a href="#" class="dropdown-icon"><b>Academics</b></a></li>
+                <li><a href="#" class="dropdown-icon"><b>R&D</b></a></li>
+                <li><a href="#" class="dropdown-icon"><b>Students</b></a></li>
+                <li><a href="#" class="dropdown-icon"><b>Alumni</b></a></li>
+            </ul>
+
+            <div class="additional-logos">
+                <img src="g20.png" alt="G20 Logo" />
+                <img src="azadi.png" alt="Azadi ka Amrit Mahotsav Logo" />
+            </div>
+        </div>
+    </nav>
+
+    <div class="slider">
+        <div class="slides">
+            <div class="slide"><img src="subodhi.jpg" alt="Slider Image 1" /></div>
+            <div class="slide"><img src="subodhi2.jpg" alt="Slider Image 2" /></div>
+            <div class="slide"><img src="subodhi3.jpg" alt="Slider Image 3" /></div>
+            <div class="slide"><img src="subodhi4.jpg" alt="Slider Image 4" /></div>
+        </div>
+        <div class="slider-nav">
+            <button class="prev">❮</button>
+            <button class="next">❯</button>
+        </div>
+        <div class="slider-dots">
+            <div class="dot active" data-index="0"></div>
+            <div class="dot" data-index="1"></div>
+            <div class="dot" data-index="2"></div>
+            <div class="dot" data-index="3"></div>
+        </div>
+    </div>
+
+    <div class="announcements-bar">
+        <div class="marquee-container">
+            <div class="marquee-content">
+                <span class="announcement-item">
+                    <span class="new-tag">New</span>
+                    Group 'A' posts and Group 'B' (Deputation) posts notified vide Advt. No. 05/2024 dt.29.11.2024
+                </span>
+                <span class="announcement-item">
+                    <span class="new-tag">New</span>
+                    Pattern of Examination and Indicative Syllabus for the recruitment
+                </span>
+            </div>
+        </div>
+    </div>
+    
+    <div class="updates-section">
+        <div class="container">
+            <div class="updates-grid">
+                <!-- Upcoming Events -->
+                <div class="update-card">
+                    <h2>Upcoming Events</h2>
+                    <div class="event-slider">
+                        <div class="event-slide">
+                            <img src="mdp-event.jpg" alt="MDP Event">
+                            <h3>Six day Advanced MDP (AMDP)</h3>
+                            <p>Navigating Business Success through Networking, Strategy Implementation and Risk Management</p>
+                            <p class="event-date">17 to 22 February 2025</p>
+                            <a href="#" class="link">Click here</a>
+                        </div>
+                        <div class="slider-arrows">
+                            <button class="prev-arrow">❮</button>
+                            <button class="next-arrow">❯</button>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Awards and Recognition -->
+                <div class="update-card">
+                    <h2>Awards and Recognition</h2>
+                    <div class="awards-list">
+                        <div class="award-item">
+                            <p>ANRF has awarded Prof. Manjalaj M (ME) a financial grant to attend the "Fraunhofer Direct Digital Manufacturing Conference DDMC, Germany (12 March, 2025 to 13 March, 2025)</p>
+                        </div>
+                        <div class="award-item">
+                            <p>Prof. Ashish Prabhu, Assistant Professor, Department of Biotechnology, has been awarded the Best Young Scientist Award at the 4th International Conference on Bioprocess for Sustainable Environment and Energy, held at NIT Rourkela.</p>
+                        </div>
+                        <div class="award-item">
+                            <p>Prof Jew Das (CE) has been chosen for the esteemed Water Advanced Research and Innovation (WARI) Fellowship Program, sponsored by the Indo-US Science and Technology Forum.</p>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Seminars -->
+                <div class="update-card">
+                    <h2>Seminars</h2>
+                    <div class="seminar-item">
+                        <div class="seminar-header">
+                            <img src="profile-placeholder.jpg" alt="Mr. Ramesh Daravath" class="profile-img">
+                            <span class="badge">Ph.D. Viva Voce Examination</span>
+                        </div>
+                        <h3>Mr. Ramesh Daravath</h3>
+                        <p class="thesis-title">Investigations on Control Flexibilities of Grid integrated Solar Photovoltaic Energy Conversion System</p>
+                        <div class="seminar-details">
+                            <p><strong>Supervisor:</strong> Prof. S. Srinivasa Rao</p>
+                            <p><strong>Venue:</strong> Meeting Hall</p>
+                            <p><strong>Department:</strong> Electrical Engineering</p>
+                            <p><strong>Date & Time:</strong> 31-January-2025 | 3:30 PM</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>
+                    NIT Warangal<br>
+                    Telangana - 506004<br>
+                    India
+                </p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Tenders</a></li>
+                    <li><a href="#">RTI</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Resources</h3>
+                <ul>
+                    <li><a href="#">Library</a></li>
+                    <li><a href="#">E-Learning</a></li>
+                    <li><a href="#">Publications</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Connect With Us</h3>
+                <ul>
+                    <li><a href="https://www.facebook.com/NITW.INDIA">Facebook</a></li>
+                    <li><a href="https://twitter.com/NITW_INDIA">Twitter</a></li>
+                    <li><a href="https://www.linkedin.com/school/nit-warangal/">LinkedIn</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Font size adjustment functionality
+        const fontIncrease = document.getElementById('font-increase');
+        const fontDecrease = document.getElementById('font-decrease');
+        const fontReset = document.getElementById('font-reset');
+        
+        // Get the default font size from CSS variable
+        const defaultFontSize = 16;
+        let currentFontSize = defaultFontSize;
+        
+        fontIncrease.addEventListener('click', () => {
+            if (currentFontSize < 24) { // Maximum font size limit
+                currentFontSize += 2;
+                updateFontSize();
+            }
+        });
+        
+        fontDecrease.addEventListener('click', () => {
+            if (currentFontSize > 12) { // Minimum font size limit
+                currentFontSize -= 2;
+                updateFontSize();
+            }
+        });
+        
+        fontReset.addEventListener('click', () => {
+            currentFontSize = defaultFontSize;
+            updateFontSize();
+        });
+        
+        function updateFontSize() {
+            document.documentElement.style.setProperty('--font-size-base', `${currentFontSize}px`);
+        }
+
+        // Add hover effect for navigation dropdowns
+        const navItems = document.querySelectorAll('.nav-menu li');
+        navItems.forEach(item => {
+            item.addEventListener('mouseover', () => {
+                // Add dropdown functionality if needed
+            });
+        });
+
+        // Updated Slider Functionality
+        const slides = document.querySelector('.slides');
+        const prevBtn = document.querySelector('.slider-nav .prev');
+        const nextBtn = document.querySelector('.slider-nav .next');
+        const dots = document.querySelectorAll('.slider-dots .dot');
+        let currentSlide = 0;
+        
+        function goToSlide(index) {
+            if (index < 0) index = 3;
+            if (index > 3) index = 0;
+            
+            currentSlide = index;
+            slides.style.transform = `translateX(-${currentSlide * 25}%)`;
+            
+            // Update active dot
+            dots.forEach(dot => dot.classList.remove('active'));
+            dots[currentSlide].classList.add('active');
+        }
+        
+        prevBtn.addEventListener('click', () => {
+            goToSlide(currentSlide - 1);
+        });
+        
+        nextBtn.addEventListener('click', () => {
+            goToSlide(currentSlide + 1);
+        });
+        
+        // Add dot navigation
+        dots.forEach(dot => {
+            dot.addEventListener('click', () => {
+                const index = parseInt(dot.dataset.index);
+                goToSlide(index);
+            });
+        });
+        
+        // Auto slide functionality
+        let slideInterval = setInterval(() => {
+            goToSlide(currentSlide + 1);
+        }, 5000);
+        
+        // Pause auto slide on hover
+        const slider = document.querySelector('.slider');
+        slider.addEventListener('mouseenter', () => {
+            clearInterval(slideInterval);
+        });
+        
+        slider.addEventListener('mouseleave', () => {
+            slideInterval = setInterval(() => {
+                goToSlide(currentSlide + 1);
+            }, 5000);
+        });
+        
+        // Initialize slider
+        goToSlide(0);
+        document.addEventListener('DOMContentLoaded', function() {
+    // Pause marquee on hover
+    const marqueeContent = document.querySelector('.marquee-content');
+    marqueeContent.addEventListener('mouseenter', () => {
+        marqueeContent.style.animationPlayState = 'paused';
+    });
+    marqueeContent.addEventListener('mouseleave', () => {
+        marqueeContent.style.animationPlayState = 'running';
+    });
+
+    // Event slider functionality
+    const eventSlides = document.querySelectorAll('.event-slide');
+    let currentEventSlide = 0;
+
+    function showEventSlide(index) {
+        eventSlides.forEach((slide, i) => {
+            slide.style.display = i === index ? 'block' : 'none';
+        });
+    }
+
+    document.querySelector('.prev-arrow').addEventListener('click', () => {
+        currentEventSlide = (currentEventSlide - 1 + eventSlides.length) % eventSlides.length;
+        showEventSlide(currentEventSlide);
+    });
+
+    document.querySelector('.next-arrow').addEventListener('click', () => {
+        currentEventSlide = (currentEventSlide + 1) % eventSlides.length;
+        showEventSlide(currentEventSlide);
+    });
+
+    // Initialize first slide
+    showEventSlide(0);
+});
+    </script>
+</body>
+</html>
