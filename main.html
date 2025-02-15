@@ -487,11 +487,35 @@
     }
     .carousel-prev { left: 0; }
     .carousel-next { right: 0; }
+    
+    .typewriter {
+  color: #fff;
+  overflow: hidden; 
+  border-right: .15em solid rgb(255, 255, 255); 
+  white-space: nowrap;
+  
+  margin: 0 auto; 
+  letter-spacing: 1px;
+  margin-left: 0;
+  animation: 
+    typing 3.5s steps(30, end),
+    blink-caret .5s step-end infinite;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 36% }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: rgb(255, 255, 255) }
+}
     </style>
 </head>
 <body>
     <div class="top-bar">
-        <div>Welcome to National Institute of Technology Warangal</div>
+        <div class="typewriter"><b>Welcome to National Institute of Technology Warangal.</b></div>
         <div class="social-icons">
             <a href="https://www.facebook.com/NITW.INDIA" title="Facebook" class="facebook">
                 <img src="facebook.webp" alt="Facebook" />
