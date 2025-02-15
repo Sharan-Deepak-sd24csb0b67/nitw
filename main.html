@@ -20,7 +20,6 @@
             font-size: var(--font-size-base);
         }
 
-        /* Top Bar */
         .top-bar {
             background-color: #2B427D;
             color: white;
@@ -30,7 +29,6 @@
             align-items: center;
         }
 
-        /* Updated Social Icons Styles */
         .social-icons {
             display: flex;
             gap: 15px;
@@ -79,7 +77,6 @@
             box-shadow: 0 2px 5px rgba(0,0,0,0.2);
         }
 
-        /* Updated Utility Buttons */
         .utility-buttons {
             display: flex;
             gap: 10px;
@@ -115,7 +112,6 @@
             background-color:#2B427D;
         }
 
-        /* Logo Section */
         .logo-section {
             text-align: center;
             padding: 20px;
@@ -126,7 +122,6 @@
             height: auto;
         }
 
-        /* Main Navigation */
         .main-nav {
             background-color: white;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
@@ -168,14 +163,13 @@
             margin-left: 5px;
         }
 
-        /* Updated Slider Styles */
         .slider {
             position: relative;
             max-width: 100%;
             height: 400px;
             overflow: hidden;
         }
-        
+
         .slider .slides {
             border-style: solid;
             border-color: #2B427D;
@@ -185,18 +179,18 @@
             display: flex;
             transition: transform 0.5s ease-in-out;
         }
-        
+
         .slider .slide {
             width: 25%;
             height: 100%;
         }
-        
+
         .slider img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
-        
+
         .slider-nav {
             position: absolute;
             top: 50%;
@@ -207,7 +201,7 @@
             transform: translateY(-50%);
             z-index: 10;
         }
-        
+
         .slider-nav button {
             background: rgba(0,0,0,0.5);
             color: white;
@@ -218,11 +212,11 @@
             border-radius: 3px;
             transition: all 0.3s;
         }
-        
+
         .slider-nav button:hover {
             background: rgba(0,0,0,0.7);
         }
-        
+
         .slider-dots {
             position: absolute;
             bottom: 20px;
@@ -231,7 +225,7 @@
             justify-content: center;
             gap: 10px;
         }
-        
+
         .slider-dots .dot {
             width: 12px;
             height: 12px;
@@ -239,12 +233,11 @@
             border-radius: 50%;
             cursor: pointer;
         }
-        
+
         .slider-dots .dot.active {
             background: white;
         }
 
-        /* G20 and Other Logos */
         .additional-logos {
             margin-bottom: 15px;
             margin-left: 50px;
@@ -258,7 +251,6 @@
             width: auto;
         }
 
-        /* Footer */
         .footer {
             background-color: #2B427D;
             color: white;
@@ -292,21 +284,20 @@
             text-decoration: none;
         }
 
-        /* Responsive Design */
         @media (max-width: 768px) {
             .nav-container {
                 flex-direction: column;
             }
-            
+
             .nav-menu {
                 margin-bottom: 10px;
             }
-            
+
             .additional-logos {
                 justify-content: center;
                 margin-top: 10px;
             }
-            
+
             .logo-section img {
                 max-width: 100%;
             }
@@ -326,7 +317,7 @@
                 grid-template-columns: 1fr;
             }
         }
-        /* Announcements Bar */
+
 .announcements-bar {
     background: #f8f9fa;
     padding: 10px 0;
@@ -364,7 +355,6 @@
     100% { transform: translateX(-100%); }
 }
 
-/* Updates Section */
 .updates-section {
     padding: 40px 0;
     background: #fff;
@@ -396,7 +386,6 @@
     border-bottom: 2px solid #e9ecef;
 }
 
-/* Event Slider */
 .event-slider {
     position: relative;
 }
@@ -422,7 +411,6 @@
 .prev-arrow { left: 10px; }
 .next-arrow { right: 10px; }
 
-/* Awards List */
 .awards-list {
     max-height: 400px;
     overflow-y: auto;
@@ -433,7 +421,6 @@
     border-bottom: 1px solid #e9ecef;
 }
 
-/* Seminar Styles */
 .seminar-header {
     display: flex;
     align-items: center;
@@ -461,7 +448,6 @@
     font-size: 0.9rem;
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
     .updates-grid {
         grid-template-columns: 1fr;
@@ -552,7 +538,7 @@
             </div>
         </div>
     </div>
-    
+
     <div class="updates-section">
         <div class="container">
             <div class="updates-grid">
@@ -573,7 +559,7 @@
                         </div>
                     </div>
                 </div>
-    
+
                 <!-- Awards and Recognition -->
                 <div class="update-card">
                     <h2>Awards and Recognition</h2>
@@ -589,7 +575,7 @@
                         </div>
                     </div>
                 </div>
-    
+
                 <!-- Seminars -->
                 <div class="update-card">
                     <h2>Seminars</h2>
@@ -611,7 +597,7 @@
             </div>
         </div>
     </div>
-    
+
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-section">
@@ -650,102 +636,94 @@
     </footer>
 
     <script>
-        // Font size adjustment functionality
+
         const fontIncrease = document.getElementById('font-increase');
         const fontDecrease = document.getElementById('font-decrease');
         const fontReset = document.getElementById('font-reset');
-        
-        // Get the default font size from CSS variable
+
         const defaultFontSize = 16;
         let currentFontSize = defaultFontSize;
-        
+
         fontIncrease.addEventListener('click', () => {
-            if (currentFontSize < 24) { // Maximum font size limit
+            if (currentFontSize < 24) { 
                 currentFontSize += 2;
                 updateFontSize();
             }
         });
-        
+
         fontDecrease.addEventListener('click', () => {
-            if (currentFontSize > 12) { // Minimum font size limit
+            if (currentFontSize > 12) { 
                 currentFontSize -= 2;
                 updateFontSize();
             }
         });
-        
+
         fontReset.addEventListener('click', () => {
             currentFontSize = defaultFontSize;
             updateFontSize();
         });
-        
+
         function updateFontSize() {
             document.documentElement.style.setProperty('--font-size-base', `${currentFontSize}px`);
         }
 
-        // Add hover effect for navigation dropdowns
         const navItems = document.querySelectorAll('.nav-menu li');
         navItems.forEach(item => {
             item.addEventListener('mouseover', () => {
-                // Add dropdown functionality if needed
+
             });
         });
 
-        // Updated Slider Functionality
         const slides = document.querySelector('.slides');
         const prevBtn = document.querySelector('.slider-nav .prev');
         const nextBtn = document.querySelector('.slider-nav .next');
         const dots = document.querySelectorAll('.slider-dots .dot');
         let currentSlide = 0;
-        
+
         function goToSlide(index) {
             if (index < 0) index = 3;
             if (index > 3) index = 0;
-            
+
             currentSlide = index;
             slides.style.transform = `translateX(-${currentSlide * 25}%)`;
-            
-            // Update active dot
+
             dots.forEach(dot => dot.classList.remove('active'));
             dots[currentSlide].classList.add('active');
         }
-        
+
         prevBtn.addEventListener('click', () => {
             goToSlide(currentSlide - 1);
         });
-        
+
         nextBtn.addEventListener('click', () => {
             goToSlide(currentSlide + 1);
         });
-        
-        // Add dot navigation
+
         dots.forEach(dot => {
             dot.addEventListener('click', () => {
                 const index = parseInt(dot.dataset.index);
                 goToSlide(index);
             });
         });
-        
-        // Auto slide functionality
+
         let slideInterval = setInterval(() => {
             goToSlide(currentSlide + 1);
         }, 5000);
-        
-        // Pause auto slide on hover
+
         const slider = document.querySelector('.slider');
         slider.addEventListener('mouseenter', () => {
             clearInterval(slideInterval);
         });
-        
+
         slider.addEventListener('mouseleave', () => {
             slideInterval = setInterval(() => {
                 goToSlide(currentSlide + 1);
             }, 5000);
         });
-        
-        // Initialize slider
+
         goToSlide(0);
         document.addEventListener('DOMContentLoaded', function() {
-    // Pause marquee on hover
+
     const marqueeContent = document.querySelector('.marquee-content');
     marqueeContent.addEventListener('mouseenter', () => {
         marqueeContent.style.animationPlayState = 'paused';
@@ -754,7 +732,6 @@
         marqueeContent.style.animationPlayState = 'running';
     });
 
-    // Event slider functionality
     const eventSlides = document.querySelectorAll('.event-slide');
     let currentEventSlide = 0;
 
@@ -774,7 +751,6 @@
         showEventSlide(currentEventSlide);
     });
 
-    // Initialize first slide
     showEventSlide(0);
 });
     </script>
