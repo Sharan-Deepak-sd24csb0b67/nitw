@@ -415,7 +415,11 @@
     max-height: 400px;
     overflow-y: auto;
 }
-
+.image-gallery {
+    display: flex;
+    flex-direction: row;
+    
+}
 .award-item {
     padding: 15px 0;
     border-bottom: 1px solid #e9ecef;
@@ -452,7 +456,37 @@
     .updates-grid {
         grid-template-columns: 1fr;
     }
+
 }
+.carousel-container {
+        position: relative;
+        max-width: 600px;
+        margin: auto;
+        overflow: hidden;
+    }
+    .carousel-wrapper {
+        width: 100%;
+        overflow: hidden;
+    }
+    .carousel {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+    }
+    .carousel-slide {
+        min-width: 100%;
+    }
+    .carousel-prev, .carousel-next {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(0,0,0,0.5);
+        color: white;
+        border: none;
+        cursor: pointer;
+        padding: 10px;
+    }
+    .carousel-prev { left: 0; }
+    .carousel-next { right: 0; }
     </style>
 </head>
 <body>
@@ -597,7 +631,21 @@
             </div>
         </div>
     </div>
-
+    <section>
+        <h2 style="background-color: #a9b1c7; text-align: center;">Campus Life</h2>
+        <p style="background-color: #a9b1c7; text-align: center;">Experience the vibrant campus life at NIT Warangal, filled with exciting events, clubs, and beautiful surroundings.</p>
+        <div class="carousel-container">
+            <button class="carousel-prev" onclick="changeSlide(-1)">&#10094;</button>
+            <div class="carousel-wrapper">
+                <div class="carousel">
+                    <img class="carousel-slide" src="life1.webp" alt="Campus View">
+                    <img class="carousel-slide" src="life2.jpg" alt="Students Enjoying">
+                    <img class="carousel-slide" src="life3.jpg" alt="Library Area">
+                </div>
+            </div>
+            <button class="carousel-next" onclick="changeSlide(1)">&#10095;</button>
+        </div>
+    </section>
     <footer class="footer">
         <div class="footer-content">
             <div class="footer-section">
@@ -637,6 +685,13 @@
 
     <script>
 
+let index = 0;
+    function changeSlide(direction) {
+        const slides = document.querySelectorAll('.carousel-slide');
+        const carousel = document.querySelector('.carousel');
+        index = (index + direction + slides.length) % slides.length;
+        carousel.style.transform = `translateX(${-index * 100}%)`;
+    }
         const fontIncrease = document.getElementById('font-increase');
         const fontDecrease = document.getElementById('font-decrease');
         const fontReset = document.getElementById('font-reset');
